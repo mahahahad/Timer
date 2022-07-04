@@ -9,15 +9,30 @@ input {
   font-family: monospace;
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
-  color: var(--color-primary);
 }
 button {
   padding: 1rem 2rem;
   cursor: pointer;
 }
 .inputs__unit {
+  display: flex;
+  align-items: center;
   label {
     margin-left: 0.5rem;
     vertical-align: middle;
+    font-weight: 500;
+  }
+}
+#timer h1 {
+  transition: color 150ms ease;
+}
+.inactive {
+  color: var(--color-dimmed);
+}
+.seperator {
+  margin-inline: 0.25rem;
+  &::before {
+    content: ":";
+    font-weight: 600;
   }
 }

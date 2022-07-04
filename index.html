@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./dist/CSS/main.css" />
     <title>Timer</title>
   </head>
   <body>
-    <div id="timer">
-      <!-- Result goes here -->
+    <div id="timer" style="display: none">
+      <h1 id="timerHours">00</h1>
+      <span class="seperator"></span>
+      <h1 id="timerMinutes">00</h1>
+      <span class="seperator"></span>
+      <h1 id="timerSeconds">00</h1>
     </div>
     <div class="landing">
       <div class="inputs">
@@ -18,33 +27,33 @@
           <input
             type="number"
             name="input"
-            id="hours"
+            id="inputsHours"
             min="0"
             placeholder="00"
           />
-          <label for="hours">hours</label>
+          <label for="inputsHours">hours</label>
         </div>
         <div class="inputs__unit minutes-input">
           <input
             type="number"
             name="input"
-            id="minutes"
+            id="inputsMinutes"
             min="0"
             max="59"
             placeholder="00"
           />
-          <label for="minutes">minutes</label>
+          <label for="inputsMinutes">minutes</label>
         </div>
         <div class="inputs__unit seconds-input">
           <input
             type="number"
             name="input"
-            id="seconds"
+            id="inputsSeconds"
             min="0"
             max="59"
             placeholder="00"
           />
-          <label for="seconds">seconds</label>
+          <label for="inputsSeconds">seconds</label>
         </div>
       </div>
       <button id="start">Start</button>

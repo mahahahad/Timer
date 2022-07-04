@@ -1,8 +1,14 @@
 @import "normalize.css";
 @import "components";
 
+html {
+  overflow: hidden;
+}
+
 :root {
-  --color-primary: dodgerblue;
+  --color-primary: rgb(232, 243, 255);
+  --color-dimmed: rgba(0, 0, 0, 0.4);
+  font-family: "Plus Jakarta Sans";
 }
 
 // || LAYOUT
@@ -16,7 +22,18 @@
 }
 .inputs {
   display: flex;
+  flex-flow: row wrap;
   width: 45%;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+#timer {
+  font-size: clamp(2rem, 4.5vmax, 4.5rem);
+  font-family: Monospace;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }

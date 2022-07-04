@@ -1,9 +1,12 @@
 // HTML Elements
-const HOURS = document.querySelector("#hours");
-const MINUTES = document.querySelector("#minutes");
-const SECONDS = document.querySelector("#seconds");
+const HOURS = document.querySelector("#inputsHours");
+const MINUTES = document.querySelector("#inputsMinutes");
+const SECONDS = document.querySelector("#inputsSeconds");
 const START_BUTTON = document.querySelector("#start");
-const TIMER_DISPLAY = document.querySelector("#timer");
+const TIMER = document.querySelector("#timer");
+const TIMER_HOURS = document.querySelector("#timerHours");
+const TIMER_MINUTES = document.querySelector("#timerMinutes");
+const TIMER_SECONDS = document.querySelector("#timerSeconds");
 
 // File Variables
 let userHours, userMinutes, userSeconds;
@@ -19,16 +22,15 @@ class Timer {
   stop() {
     if (this.interval) clearInterval(this.interval);
     this.remainingSeconds = 0;
+    document.title = "Timer";
   }
 
   #finish() {
+    TIMER.style.display = "none";
     alert("Your time has finished.");
   }
 
   #timeDecrease() {
-    // Update Interface Every Second
-    // this.remainingSeconds -= 1;
-
     if (this.remainingSeconds === 0) {
       this.stop();
       this.#finish();
@@ -44,6 +46,7 @@ class Timer {
     this.interval = setInterval(() => {
       this.#timeDecrease();
     }, 1000);
+    TIMER.style.display = "flex";
   }
 
   #display() {
@@ -56,21 +59,23 @@ class Timer {
       .toString()
       .padStart(2, "0");
     let result = `${hours}:${minutes}:${seconds}`;
-    TIMER_DISPLAY.textContent = result;
+    document.title = result;
+    if (hours === "00") TIMER_HOURS.classList.add("inactive");
+    if (minutes === "00") TIMER_MINUTES.classList.add("inactive");
+    TIMER_HOURS.textContent = hours;
+    TIMER_MINUTES.textContent = minutes;
+    TIMER_SECONDS.textContent = seconds;
   }
 }
 
-// Initial Function
 START_BUTTON.onclick = function () {
   userHours = HOURS.value;
   userMinutes = MINUTES.value;
   userSeconds = SECONDS.value;
 
-  // Input Validation
   if (!userHours) userHours = 0;
   if (!userMinutes) userMinutes = 0;
   if (!userSeconds) userSeconds = 0;
 
-  let timer = new Timer(userHours, userMinutes, userSeconds);
-  timer.start();
+  new Timer(userHours, userMinutes, userSeconds).start();
 };
