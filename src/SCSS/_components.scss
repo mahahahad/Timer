@@ -1,0 +1,23 @@
+label {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+input {
+  padding: 1rem;
+  max-width: 4ch;
+  font-size: 1.3rem;
+  font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: var(--color-primary);
+}
+button {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+.inputs__unit {
+  label {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+}
