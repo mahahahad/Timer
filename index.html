@@ -3,26 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="color-scheme" content="dark light" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mahad." />
+    <meta name="description" content="A minimalistic, customizable timer." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./dist/CSS/main.css" />
     <title>Timer</title>
   </head>
   <body>
-    <div id="timer" style="display: none">
-      <h1 id="timerHours">00</h1>
-      <span class="seperator"></span>
-      <h1 id="timerMinutes">00</h1>
-      <span class="seperator"></span>
-      <h1 id="timerSeconds">00</h1>
-    </div>
-    <div class="landing">
+    <section id="timer">
+      <div class="time-container">
+        <h1 id="timerHours">00</h1>
+        <span class="seperator"></span>
+        <h1 id="timerMinutes">00</h1>
+        <span class="seperator"></span>
+        <h1 id="timerSeconds">00</h1>
+      </div>
+      <div class="button-container">
+        <button id="stop">Stop</button>
+      </div>
+    </section>
+    <section class="landing">
       <div class="inputs">
         <div class="inputs__unit hours-input">
           <input
@@ -58,7 +64,7 @@
         </div>
       </div>
       <button id="start">Start</button>
-    </div>
+    </section>
   </body>
   <script src="./src/JS/index.js"></script>
 </html>

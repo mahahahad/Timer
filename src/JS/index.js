@@ -3,11 +3,12 @@ const HOURS = document.querySelector("#inputsHours");
 const MINUTES = document.querySelector("#inputsMinutes");
 const SECONDS = document.querySelector("#inputsSeconds");
 const START_BUTTON = document.querySelector("#start");
+const STOP_BUTTON = document.querySelector("#stop");
 const TIMER = document.querySelector("#timer");
 const TIMER_HOURS = document.querySelector("#timerHours");
 const TIMER_MINUTES = document.querySelector("#timerMinutes");
 const TIMER_SECONDS = document.querySelector("#timerSeconds");
-
+const LANDING_PAGE = document.querySelector(".landing");
 class Timer {
   constructor(hours, minutes, seconds) {
     this.hours = hours;
@@ -26,13 +27,17 @@ class Timer {
       this.hours * 3600 + this.minutes * 60 + this.seconds;
 
     // Update interface first time immediately on button click
-    this.#display();
+    this._display();
 
     // Set interval to decrease time every second
     this.interval = setInterval(() => {
-      this.#timeDecrease();
+      this._timeDecrease();
     }, 1000);
     TIMER.style.display = "flex";
+    LANDING_PAGE.style.display = "none";
+
+    // Make stop button keyboard focusable
+    // STOP_BUTTON.tabIndex = "0";
   }
 
   stop() {
@@ -41,11 +46,14 @@ class Timer {
     if (this.interval) clearInterval(this.interval);
     this.remainingSeconds = 0;
     document.title = "Timer";
+    // STOP_BUTTON.tabIndex = "-1";
+    LANDING_PAGE.style.display = "flex";
+    TIMER.style.display = "none";
   }
 
-  #finish() {
+  _finish() {
     // Initialize timer section
-    TIMER.style.display = "none";
+    TIMER.classList.remove("visible");
     TIMER_HOURS.classList.remove("inactive");
     TIMER_MINUTES.classList.remove("inactive");
     TIMER_SECONDS.classList.remove("inactive");
@@ -54,20 +62,20 @@ class Timer {
     alert("Your time has finished.");
   }
 
-  #timeDecrease() {
+  _timeDecrease() {
     // Decrease seconds by 1 every second
     // if they aren't over
     if (this.remainingSeconds === 0) {
       this.stop();
-      this.#finish();
+      this._finish();
     } else {
       this.remainingSeconds -= 1;
       // Update interface after decreasing
-      this.#display();
+      this._display();
     }
   }
 
-  #display() {
+  _display() {
     let divisionResult = this.remainingSeconds / 3600;
 
     // This helps if user puts more value in minutes or seconds
@@ -95,6 +103,8 @@ class Timer {
   }
 }
 
+let timer;
+
 function timerStart() {
   let userHours = parseInt(HOURS.value);
   let userMinutes = parseInt(MINUTES.value);
@@ -116,7 +126,8 @@ function timerStart() {
   }
 
   // Initalize class and start timer
-  new Timer(userHours, userMinutes, userSeconds).start();
+  timer = new Timer(userHours, userMinutes, userSeconds);
+  timer.start();
 }
 
 // Start on user input
@@ -129,4 +140,9 @@ MINUTES.addEventListener("keydown", (e) => {
 });
 SECONDS.addEventListener("keydown", (e) => {
   if (e.key === "Enter") timerStart();
+});
+
+STOP_BUTTON.addEventListener("click", function () {
+  timer.stop();
+  timer._finish();
 });

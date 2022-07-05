@@ -1,41 +1,4 @@
 @import "normalize.css";
+@import "config";
 @import "components";
-
-html {
-  overflow: hidden;
-}
-
-:root {
-  --color-primary: rgb(111, 163, 219);
-  --color-background: #111;
-  --text: white;
-  --text-dimmed: rgba(0, 0, 0, 0.4);
-  font-family: "Plus Jakarta Sans";
-}
-
-// || LAYOUT
-.landing {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.inputs {
-  display: flex;
-  flex-flow: row wrap;
-  width: 45%;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-#timer {
-  font-size: clamp(2rem, 4.5vmax, 4.5rem);
-  font-family: Monospace;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+@import "layout";
