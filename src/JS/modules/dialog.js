@@ -6,7 +6,7 @@ const dialogAgreeBtn = dialogEl.querySelector("#agreeBtn");
 const dialogCloseIcon = dialogEl.querySelector("#dialogCloseIcon");
 
 function showDialog() {
-  dialogWrapperEl.classList.toggle("hidden");
+  dialogWrapperEl.classList.remove("hidden");
 
   // Display the dialog 10ms after wrapper is made visible
   setTimeout(() => {
@@ -15,24 +15,17 @@ function showDialog() {
     dialogEl.style.opacity = 1;
   }, 10);
 }
-function hideDialog(response = null) {
-  if (response == true) {
-    showSnackbar("You agreed to the T&Cs.");
-  } else {
-    showSnackbar("You didn't agree to the T&Cs. ;(");
-  }
-
+function hideDialog() {
   dialogWrapperEl.style.opacity = 0;
   dialogEl.style.transform = "translateY(10px)";
   dialogEl.style.opacity = 0;
 
   // Wait till animation is over to hide the wrapper
   setTimeout(() => {
-    dialogWrapperEl.classList.toggle("hidden");
+    dialogWrapperEl.classList.add("hidden");
   }, 150);
 }
 
-openDialogBtn.addEventListener("click", showDialog);
 dialogAgreeBtn.addEventListener("click", () => {
   hideDialog(true);
 });
@@ -40,3 +33,11 @@ dialogDisagreeBtn.addEventListener("click", () => {
   hideDialog(false);
 });
 dialogCloseIcon.addEventListener("click", hideDialog);
+
+export {
+  showDialog,
+  hideDialog,
+  dialogAgreeBtn,
+  dialogDisagreeBtn,
+  dialogCloseIcon,
+};

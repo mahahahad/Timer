@@ -1,20 +1,30 @@
+// Larger screen sizes
+@media (min-width: 500px) {
+  .dialog {
+    max-width: 540px;
+  }
+  .dialog__actions {
+    display: block;
+  }
+  .snackbar {
+    max-width: 420px;
+  }
+}
+// Dark mode
 @media (prefers-color-scheme: dark) {
   :root {
+    --primary: var(--Primary80);
+    --on-primary: var(--Primary20);
+    --primary-container: var(--Primary30);
+    --on-primary-container: var(--Primary90);
     --background: var(--Neutral10);
     --on-background: var(--Neutral99);
     --outline: var(--Neutral40);
-    --primary: var(--Primary80);
-    --on-primary: var(--Primary20);
   }
-
-  .btn--primary {
-    &:hover {
-      background-color: var(--Primary70);
-    }
+  .btn--primary:hover {
+    background-color: var(--Primary70);
   }
-  .btn--outlined {
-    &:hover {
-      background-color: var(--Neutral20);
-    }
+  .btn--outlined:hover {
+    background-color: var(--Neutral20);
   }
 }

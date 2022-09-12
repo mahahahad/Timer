@@ -101,21 +101,15 @@ button {
 
 // || DIALOG
 .dialog-wrapper {
-  // Center content
   @include center(center);
-
-  // Make background darker to show importance
   background: rgba(0, 0, 0, 0.4);
-
-  // Blur everything behind
   backdrop-filter: blur(4px);
-
-  // Take up full browser viewport size
   height: 100vh;
-
-  // Position fixed to make it appear above all other elements
+  width: 100vw;
   position: fixed;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 150ms ease;
 }
 
 .dialog {
@@ -125,7 +119,9 @@ button {
   padding: 36px;
   border-radius: 28px;
   box-shadow: 0 0.75rem 4rem 0.25rem rgba(25, 26, 27, 0.1);
-
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--easing), transform 500ms var(--easing);
   &__header {
     @include center(space-between);
     margin-bottom: 16px;
@@ -140,6 +136,16 @@ button {
     button {
       // Take up full width on small screens
       flex-grow: 1;
+    }
+  }
+
+  .close-icon {
+    width: var(--fs-medium);
+    cursor: pointer;
+    fill: var(--on-background);
+    transition: fill 350ms var(--easing);
+    &:hover {
+      fill: var(--primary);
     }
   }
 }
