@@ -2,6 +2,8 @@ label {
   text-transform: capitalize;
   font-size: 2rem;
 }
+
+// INPUTS
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -16,29 +18,15 @@ input {
   font-size: 1.8rem;
   font-family: "JetBrains Mono";
   border: none;
-  border-bottom: 1px solid var(--text);
+  border-bottom: 1px solid var(--on-background);
+
+  &:focus {
+    outline: 1px solid var(--on-background);
+    outline-offset: 4px;
+    border-bottom-color: var(--primary);
+  }
 }
-button {
-  padding: 1rem 2rem;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  border: 1px solid var(--text);
-}
-input,
-button {
-  color: var(--text);
-  background-color: transparent;
-  transition: border 250ms ease;
-}
-input:focus {
-  outline: 1px solid var(--text);
-  outline-offset: 4px;
-  border-bottom-color: var(--color-primary);
-}
-button:focus {
-  background-color: var(--text-dimmed);
-  border-color: var(--color-primary);
-}
+
 .inputs__unit {
   display: flex;
   align-items: baseline;
@@ -47,6 +35,45 @@ button:focus {
     vertical-align: bottom;
     font-weight: 500;
   }
+}
+
+// BUTTONS
+.btn {
+  padding: 0.85rem 2.25rem;
+  border-radius: 28px;
+  border: none;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+.btn--primary {
+  border-radius: 28px;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  &:hover {
+    background-color: var(--Primary20);
+  }
+}
+.btn--outlined {
+  border-radius: 28px;
+  background-color: transparent;
+  color: var(--on-background);
+  border: 1px solid var(--outline);
+
+  &:hover {
+    background-color: var(--Neutral80);
+  }
+
+  &:focus {
+    background-color: var(--Neutral80);
+    border-color: var(--primary);
+  }
+}
+
+input,
+button {
+  background-color: transparent;
+  transition: border 250ms ease;
 }
 
 // TIMER SECTION
@@ -58,7 +85,7 @@ button:focus {
   }
 }
 .inactive {
-  color: var(--text-dimmed);
+  color: var(--Neutral50);
 }
 .seperator {
   margin-inline: 0.25rem;
@@ -69,5 +96,5 @@ button:focus {
   }
 }
 #stop:focus {
-  background-color: var(--text-dimmed);
+  background-color: var(--Neutral50);
 }

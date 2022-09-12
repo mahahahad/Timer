@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./dist/CSS/normalize.css" />
     <link rel="stylesheet" href="./dist/CSS/main.css" />
     <title>Timer</title>
   </head>
@@ -25,7 +26,7 @@
         <h1 id="timerSeconds">00</h1>
       </div>
       <div class="button-container">
-        <button id="stop">Stop</button>
+        <button class="btn btn--outlined" id="stop">Stop</button>
       </div>
     </section>
     <section class="landing">
@@ -63,7 +64,7 @@
           <label for="inputsSeconds">seconds</label>
         </div>
       </div>
-      <button id="start">Start</button>
+      <button class="btn btn--primary" id="start">Start</button>
     </section>
   </body>
   <script src="./src/JS/index.js"></script>

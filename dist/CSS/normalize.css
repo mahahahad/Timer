@@ -166,6 +166,7 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  color: inherit;
 }
 
 /**
@@ -174,7 +175,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,7 +186,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -196,6 +199,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  cursor: pointer;
   -webkit-appearance: button;
 }
 

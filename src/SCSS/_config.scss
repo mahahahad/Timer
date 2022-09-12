@@ -1,12 +1,37 @@
+$tones: 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100;
+$huePrimary: 280;
+$hueNeutral: $huePrimary - 90;
 :root {
-  --color-primary: rgb(111, 163, 219);
-  --color-background: #111;
-  --text: white;
-  --text-dimmed: rgba(255, 255, 255, 0.2);
-  --red-900: #d32f2f;
-  --red-100: #ffcdd2;
+  @each $tone in $tones {
+    --Primary#{$tone}: hsl(#{$huePrimary}, #{$tone + "%"}, #{$tone + "%"});
+  }
+  @each $tone in $tones {
+    $toneOffset: "";
+
+    @if $tone < 80 {
+      $toneOffset: calc($tone / 2);
+    } @else {
+      $toneOffset: $tone;
+    }
+    --Neutral#{$tone}: hsl(
+      #{$hueNeutral},
+      #{$toneOffset + "%"},
+      #{$tone + "%"}
+    );
+  }
+
+  --background: var(--Neutral99);
+  --on-background: var(--Neutral10);
+  --outline: var(--Neutral50);
+
+  --primary: var(--Primary30);
+  --on-primary: var(--Primary100);
+
+  --error: #d32f2f;
+  --on-error: #ffcdd2;
 
   --shadow: 0 4px 0.5rem rgba(0, 0, 0, 0.2);
+
   font-family: "Plus Jakarta Sans";
   overflow: hidden;
 }
