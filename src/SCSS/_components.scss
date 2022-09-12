@@ -98,3 +98,48 @@ button {
 #stop:focus {
   background-color: var(--Neutral50);
 }
+
+// || DIALOG
+.dialog-wrapper {
+  // Center content
+  @include center(center);
+
+  // Make background darker to show importance
+  background: rgba(0, 0, 0, 0.4);
+
+  // Blur everything behind
+  backdrop-filter: blur(4px);
+
+  // Take up full browser viewport size
+  height: 100vh;
+
+  // Position fixed to make it appear above all other elements
+  position: fixed;
+  z-index: 2;
+}
+
+.dialog {
+  // Set up colours for ez dark mode
+  background: var(--background);
+  color: var(--on-background);
+  padding: 36px;
+  border-radius: 28px;
+  box-shadow: 0 0.75rem 4rem 0.25rem rgba(25, 26, 27, 0.1);
+
+  &__header {
+    @include center(space-between);
+    margin-bottom: 16px;
+  }
+
+  &__actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    text-align: right;
+
+    button {
+      // Take up full width on small screens
+      flex-grow: 1;
+    }
+  }
+}

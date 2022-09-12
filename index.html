@@ -17,6 +17,46 @@
     <title>Timer</title>
   </head>
   <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="0"
+      width="0"
+      class="close-icon"
+      viewbox="0 0 48 48"
+    >
+      <path
+        id="closeIconPath"
+        d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
+      />
+    </svg>
+    <div class="dialog-wrapper hidden" id="dialogWrapper">
+      <div class="dialog" id="dialog">
+        <div class="dialog__header">
+          <h1 class="title">Would you like to recieve notifications?</h1>
+          <span class="close-icon-wrapper">
+            <svg
+              height="32"
+              width="32"
+              viewbox="0 0 48 48"
+              class="close-icon"
+              id="dialogCloseIcon"
+            >
+              <use href="#closeIconPath" />
+            </svg>
+          </span>
+        </div>
+        <div class="dialog__content" id="dialogContent">
+          <p class="content">
+            Doing so will enable us to send you a notification when your timer
+            has ended.
+          </p>
+        </div>
+        <div class="dialog__actions">
+          <button class="btn btn--outlined" id="disagreeBtn">Disagree</button>
+          <button class="btn btn--primary" id="agreeBtn">Agree</button>
+        </div>
+      </div>
+    </div>
     <section id="timer">
       <div class="time-container">
         <h1 id="timerHours">00</h1>

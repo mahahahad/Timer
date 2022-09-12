@@ -8,8 +8,8 @@ $hueNeutral: $huePrimary - 90;
   @each $tone in $tones {
     $toneOffset: "";
 
-    @if $tone < 80 {
-      $toneOffset: calc($tone / 2);
+    @if $tone <= 80 {
+      $toneOffset: calc($tone / 5);
     } @else {
       $toneOffset: $tone;
     }
@@ -31,6 +31,11 @@ $hueNeutral: $huePrimary - 90;
   --on-error: #ffcdd2;
 
   --shadow: 0 4px 0.5rem rgba(0, 0, 0, 0.2);
+
+  --fs-content: clamp(14px, 1.85vmin, 18px);
+  --fs-medium: clamp(24px, 3.25vmin, 32px);
+
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
 
   font-family: "Plus Jakarta Sans";
   overflow: hidden;

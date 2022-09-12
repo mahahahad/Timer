@@ -28,3 +28,6 @@ section {
   flex-direction: column;
   transition: opacity 250ms ease;
 }
+.hidden {
+  display: none !important;
+}
